@@ -98,24 +98,25 @@ class ElasticObj:
         print(res)
 
     def Get_Data_By_Body(self):
-        # doc = {'query': {'match_all': {}}}
-        doc = {
-            "query": {
-                "match": {
-                    "keyword": "镜像仓库"
+        for i in range(1,10000):
+            # doc = {'query': {'match_all': {}}}
+            doc = {
+                "query": {
+                    "match": {
+                        "keyword": "镜像仓库"
+                    }
                 }
             }
-        }
-        _searched = self.es.search(index=self.index_name, doc_type=self.index_type, body=doc)
+            _searched = self.es.search(index=self.index_name, doc_type=self.index_type, body=doc)
 
-        for hit in _searched['hits']['hits']:
-            # print hit['_source']
-            print(hit['_source']['date'], hit['_source']['source'], hit['_source']['link'], hit['_source']['keyword'], \
-            hit['_source']['title'])
+            for hit in _searched['hits']['hits']:
+                # print hit['_source']
+                print(hit['_source']['date'], hit['_source']['source'], hit['_source']['link'], hit['_source']['keyword'], \
+                hit['_source']['title'])
 
 
 if __name__ == '__main__':
-    obj =ElasticObj("paas", "paasweb", ip="210.13.50.105:32264")
-    obj.Index_Data()
+    obj =ElasticObj("paas", "paasweb", ip="210.13.50.105:31532")
+    # obj.Index_Data()
     obj.Get_Data_By_Body()
 

@@ -14,12 +14,21 @@ class MySQL(object):
         )
         self.cur = self.conn.cursor()
 
+    def createTable(self):
+        self.cur.execute("CREATE TABLE testpython(id int not null default 0);")
+
+    def insertData(self):
+        for i in range(1, 100000):
+            self.cur.execute("INSERT INTO testpython VALUE('100')")
+        print("insert data completed")
+
     def getDataFromDataBase(self):
-        # 从数据库中获取数据
-        self.cur.execute("select * from user;")
-        # 从查询区域取回所有查询结果
-        dataTuple = self.cur.fetchall()
-        return dataTuple
+        for i in range(1, 100000):
+            # 从数据库中获取数据
+            self.cur.execute("select * from user;")
+            # 从查询区域取回所有查询结果
+            dataTuple = self.cur.fetchall()
+        print("search data completed")
 
     def closeDataBase(self):
         # 数据库清理
