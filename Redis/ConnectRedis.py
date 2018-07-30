@@ -10,10 +10,11 @@ class ConnectRedis(object):
         )
         r = redis.Redis(connection_pool=self.conn)
         pipe = r.pipeline(transaction=True)
-        r.set('zcx', '5555')
-        r.set('zcx', '6666')
-        pipe.execute()
-        print(r.mget('zcx'))
+        for i in range(1, 10000):
+            r.set('zcx', '5555')
+            r.set('zcx', '6666')
+            pipe.execute()
+            print(r.mget('zcx'))
 
 
 if __name__ == "__main__":
