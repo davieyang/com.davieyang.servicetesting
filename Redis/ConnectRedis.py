@@ -18,4 +18,4 @@ class ConnectRedis(object):
 
 
 if __name__ == "__main__":
-    ConnectRedis(host='210.13.50.105', port='31859')
+    ConnectRedis(host='210.13.50.105', port='30302')

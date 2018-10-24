@@ -38,6 +38,7 @@ class MySQL(object):
 
 
 if __name__ == "__main__":
-    db = MySQL(host="210.13.50.105", port=30580, dbName="mysql", username="root", password="111111", charset="utf8")
+    db = MySQL(host="210.13.50.105", port=30377, dbName="mysql", username="root", password="111111", charset="utf8")
+    print(db.insertData())
     print(db.getDataFromDataBase())
     db.closeDataBase()

@@ -4,7 +4,7 @@ from elasticsearch.helpers import bulk
 
 
 class ElasticObj:
-    def __init__(self, index_name='paas', index_type='paasweb', ip="210.13.50.105:32264"):
+    def __init__(self, index_name='paas', index_type='paasweb', ip="210.13.50.105:30130"):
         self.index_name = index_name
         self.index_type = index_type
         # 无用户名密码状态
@@ -98,7 +98,7 @@ class ElasticObj:
         print(res)
 
     def Get_Data_By_Body(self):
-        for i in range(1,10000):
+        for i in range(1, 1000000):
             # doc = {'query': {'match_all': {}}}
             doc = {
                 "query": {
@@ -111,12 +111,12 @@ class ElasticObj:
 
             for hit in _searched['hits']['hits']:
                 # print hit['_source']
-                print(hit['_source']['date'], hit['_source']['source'], hit['_source']['link'], hit['_source']['keyword'], \
-                hit['_source']['title'])
+                print(hit['_source']['date'], hit['_source']['source'], hit['_source']['link'], hit['_source']['keyword'], hit['_source']['title'])
 
 
 if __name__ == '__main__':
-    obj =ElasticObj("paas", "paasweb", ip="210.13.50.105:31532")
-    # obj.Index_Data()
+    obj =ElasticObj("paas", "paasweb", ip="210.13.50.105:32720")
+    obj.Index_Data()
+    obj.bulk_Index_Data()
     obj.Get_Data_By_Body()
 
