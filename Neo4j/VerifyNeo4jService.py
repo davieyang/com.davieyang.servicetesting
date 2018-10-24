@@ -65,8 +65,7 @@ class VerifyNeo4j:
                 for record in tx.run(cypher).records():
                     item = {}
                     for args in str(record).split('>')[0].split()[1:]:
-                        exec
-                        "item.update(dict({0}))".format(args)
+                        exec("item.update(dict({0}))".format(args))
                     data.append(item)
                 return data
 
