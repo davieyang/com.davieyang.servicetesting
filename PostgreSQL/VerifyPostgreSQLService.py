@@ -49,6 +49,8 @@ class VerifyPostgreSQL(object):
             print("ADDRESS = ", row[2])
             print("SALARY = ", row[3], "\n")
         print("search data successfully")
+
+
 if __name__ == '__main__':
     db = VerifyPostgreSQL("postgres", "admin", "111111", "210.13.50.105", "31966")
     # db.createtable()
