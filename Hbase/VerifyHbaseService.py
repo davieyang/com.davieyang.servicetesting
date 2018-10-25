@@ -7,3 +7,6 @@
 @Description:
 '''
 # encoding = utf-8
+from thrift.transport import TSocket, TTransport
+from thrift.protocol import TBinaryProtocol
+from hbase import Hbase

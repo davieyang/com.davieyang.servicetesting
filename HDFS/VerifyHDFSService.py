@@ -7,3 +7,4 @@
 @Description:
 '''
 # encoding = utf-8
+from hdfs.client import Client
