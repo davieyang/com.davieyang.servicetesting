@@ -1,3 +1,4 @@
+# encoding:utf-8
 '''
 @Time    : 2018/10/24 10:14
 @Author  : 
@@ -6,7 +7,7 @@
 @Software: PyCharm
 @Description:
 '''
-# encoding = utf-8
+
 
 import pyhs2
 import xlrd
@@ -23,7 +24,7 @@ class HiveClient:
                                   authMechanism=authMechanism,
                                   user=user,
                                   password=password,
-                                  database=database,
+                                  database=database
                                   )
 
     def query(self, sql):
@@ -59,6 +60,6 @@ class HiveClient:
 
 
 if __name__ == '__main__':
-    hive_client = HiveClient(db_host='192.168.14.44', port=10000, user='hive', password='hive',database='test', authMechanism='PLAIN')
-    sql = 'select * from test limit 10'
-    result = hive_client.query(sql)
+    hive_client = HiveClient(db_host='192.168.0.33', port=10000, user='otgywab6uqa2g2a5', password='a2g2a5',database='otgywab6uqa2g2a5')
+    # sql = 'select * from test limit 10'
+    # result = hive_client.query(sql)
